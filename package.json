@@ -1,0 +1,34 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "description": "Sriharshini Chitluri's Portfolio Website",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "concurrently \"npm run build:css:watch\" \"nodemon server.js\"",
+    "optimize-images": "node optimize-images.js",
+    "build:css": "npx tailwindcss -i ./css/styles.css -o ./css/output.css",
+    "build:css:watch": "npm run build:css -- --watch",
+    "build": "npm run build:css && npm run optimize-images"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "csurf": "^1.2.2",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.1.5",
+    "nodemailer": "^6.9.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "live-server": "^1.2.0",
+    "nodemon": "^3.0.3",
+    "postcss": "^8.5.3",
+    "sharp": "^0.33.2",
+    "tailwindcss": "^3.4.1"
+  }
+}

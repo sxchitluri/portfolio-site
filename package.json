@@ -5,9 +5,11 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "concurrently \"npm run build:css\" \"nodemon server.js\"",
+    "dev": "concurrently \"npm run build:css:watch\" \"nodemon server.js\"",
     "optimize-images": "node optimize-images.js",
-    "build:css": "npx tailwindcss -i ./css/styles.css -o ./css/output.css --watch"
+    "build:css": "npx tailwindcss -i ./css/styles.css -o ./css/output.css",
+    "build:css:watch": "npm run build:css -- --watch",
+    "build": "npm run build:css && npm run optimize-images"
   },
   "keywords": [],
   "author": "",

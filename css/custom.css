@@ -1,0 +1,261 @@
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0e0e0c;
+  color: #e8e8e3;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+p {
+  margin-bottom: 1.5em;
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+/* Project Images */
+.aspect-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  width: 100%;
+  height: 0;
+}
+
+.aspect-video img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.7s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0e0e0c;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e8e8e3;
+}
+
+/* Selection */
+::selection {
+  background: #e8e8e3;
+  color: #0e0e0c;
+}
+
+/* Header */
+header {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+  }
+}
+
+/* Custom cursor styles */
+a,
+button {
+  cursor: pointer;
+}
+
+/* Image hover effects */
+.group:hover img {
+  transform: scale(1.03);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Text selection color */
+::selection {
+  background: #e8e8e3;
+  color: #0e0e0c;
+}
+
+/* Form input animations */
+input,
+textarea {
+  transition: all 0.3s ease;
+  border-color: rgba(232, 232, 227, 0.2);
+  color: #e8e8e3;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #e8e8e3;
+  outline: none;
+}
+
+/* Mobile menu animation */
+#mobileMenu {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  opacity: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(14, 14, 12, 0.9);
+}
+
+#mobileMenu:not(.hidden) {
+  opacity: 1;
+}
+
+/* Project card hover effects */
+.project-card {
+  position: relative;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #e8e8e3;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-card:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Typography enhancements */
+.font-display {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+.text-huge {
+  letter-spacing: -0.03em;
+  font-weight: 600;
+}
+
+/* Link hover effects */
+.hover\:opacity-70 {
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Lightbox styles */
+#lightbox {
+  transition: opacity 0.3s ease;
+  background-color: rgba(14, 14, 12, 0.95);
+}
+
+#lightboxImage {
+  transition: opacity 0.3s ease;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+/* Lightbox navigation buttons */
+#lightboxPrev,
+#lightboxNext {
+  transition: opacity 0.2s ease;
+}
+
+@media (hover: hover) {
+  #lightboxPrev:hover,
+  #lightboxNext:hover,
+  #lightboxClose:hover {
+    opacity: 0.8;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  #lightboxPrev,
+  #lightboxNext {
+    padding: 1.5rem;
+  }
+
+  #lightboxClose {
+    padding: 1rem;
+  }
+
+  #lightbox .h-8 {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
